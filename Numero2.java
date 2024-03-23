@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
 public class Numero2 {
-    public static boolean econtrarFibonacci(int num, int nesimoNumero){
+    public static void econtrarFibonacci(int num, int nesimoNumero){
         boolean pertence = false;
         int resultado = 0;
         int a = 0;
         int b = 1;
+        int posicao = 0;
         
         for(int i = 0; i < nesimoNumero ; i++){
             System.out.print(resultado + " ");
@@ -16,10 +17,17 @@ public class Numero2 {
 
             if(num == resultado){
                 pertence = true;
-
+                posicao = i + 2;
             }
         }
-        return pertence;
+
+        System.out.println();
+
+        if(pertence == true){
+            System.out.println("O numero " + num + " pertence a sequencia de Fibonacci e esta na posicao " + posicao);
+        }else{
+            System.out.println("O numero " + num + " não pertence a sequencia de Fibonacci");
+        }
     }
 
     public static void main(String[] args) {
@@ -31,15 +39,7 @@ public class Numero2 {
         System.out.println("Informe o numero que voce quer verificar se tem dentro da sequencia");
         int num = input.nextInt();
 
-        boolean pertence = econtrarFibonacci(num, nesimoNumero);
-
-        System.out.println();
-
-        if(pertence == true){
-            System.out.println("O numero " + num + " pertence a sequencia de Fibonacci e esta na posicao");
-        }else{
-            System.out.println("O numero " + num + " não pertence a sequencia de Fibonacci");
-        }
+        econtrarFibonacci(num, nesimoNumero);
 
         input.close();
     }
